@@ -1,8 +1,11 @@
-<div class="no-user">
+<div *ngIf="!authorized" class="no-user">
+	{{authorized}}
+	<app-login [userName]="name" (sent)="setUser($event)">
+	</app-login>
 
 </div>
 
-<div class="full-height">
+<div *ngIf="authorized" class="full-height">
 
 	<div class="sidebar">
 

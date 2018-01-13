@@ -11,19 +11,39 @@ import { UserDto } from './rest/user.dto';
 export class AppComponent implements OnInit {
 	authorized = false;
 	user: UserDto;
+	count = 12;
+	name = 'Tina';
+	names: string[] = [];
 
-	constructor(private usersService: UsersService) {}
+	constructor(private usersService: UsersService) { }
+
+	setUser(name: string) {
+		this.authorized = !!name;
+		//console.log(name);
+	}
+	addName(name: string) {
+		this.names.push(name);
+	}
+
+	isValid(): boolean {
+		return this.count > 55;
+	}
+
+	show(msg: string) {
+		this.name = msg;
+		//return `${msg} ${this.count}`;
+	}
 
 	ngOnInit() {
 		this.user = this.getUserFromStorage();
-		this.updateAuthorized();
+		//this.updateAuthorized();
 	}
 
-	setUser(user: UserDto) {
-		this.user = user;
-		this.setUserFromStorage(user);
-		this.updateAuthorized();
-	}
+	// setUser(user: UserDto) {
+	// 	this.user = user;
+	// 	this.setUserFromStorage(user);
+	// 	this.updateAuthorized();
+	// }
 
 	private updateAuthorized() {
 		this.authorized = !!this.user;
