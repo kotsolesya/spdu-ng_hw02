@@ -17,10 +17,10 @@ export class AppComponent implements OnInit {
 
 	constructor(private usersService: UsersService) { }
 
-	setUser(name: string) {
-		this.authorized = !!name;
-		//console.log(name);
-	}
+	// setUser(name: string) {
+	// 	this.authorized = !!name;
+	// 	//console.log(name);
+	// }
 	addName(name: string) {
 		this.names.push(name);
 	}
@@ -36,14 +36,14 @@ export class AppComponent implements OnInit {
 
 	ngOnInit() {
 		this.user = this.getUserFromStorage();
-		//this.updateAuthorized();
+		this.updateAuthorized();
 	}
 
-	// setUser(user: UserDto) {
-	// 	this.user = user;
-	// 	this.setUserFromStorage(user);
-	// 	this.updateAuthorized();
-	// }
+	setUser(user: UserDto) {
+		this.user = user;
+		this.setUserFromStorage(user);
+		this.updateAuthorized();
+	}
 
 	private updateAuthorized() {
 		this.authorized = !!this.user;

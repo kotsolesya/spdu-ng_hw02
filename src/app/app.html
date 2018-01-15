@@ -8,20 +8,20 @@
 <div *ngIf="authorized" class="full-height">
 
 	<div class="sidebar">
-
+		<app-users></app-users>
 	</div>
 
 	<div class="content">
 		<div class="content-user-info">
-
+			{{user.name}}
 		</div>
 
 		<div class="content-messages">
-
+			<app-messages></app-messages>
 		</div>
 
 		<div class="content-message-send">
-
+			<app-message-send></app-message-send>
 		</div>
 	</div>
 </div>
