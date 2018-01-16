@@ -1,6 +1,10 @@
-<input type="text" [(ngModel)]="userName">
+<input 
+    class="add-user-field" 
+    type="text" 
+    placeholder="Enter a name"
+    [(ngModel)]="userName">
 <br>
 
-<button type="button" (click)="submit()">
-    Go
-</button>
+<button type="button" (click)="submit()" class="add-user-btn">
+    Sign in
+</button> 

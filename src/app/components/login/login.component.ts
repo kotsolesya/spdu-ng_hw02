@@ -1,4 +1,6 @@
-import { Component,Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { UsersService } from '../../rest/users.service';
+import { UserDto } from '../../rest/user.dto';
 
 @Component({
     selector: 'app-login',
@@ -6,15 +8,22 @@ import { Component,Input, Output, EventEmitter, OnInit } from '@angular/core';
 })
 
 export class LoginComponent {
-    @Output() sent = new EventEmitter(); //нова проперті і інстанс евент слушать ктото извне
-    @Input() userName: string;//для ангуляра задекларирована
+    @Output() sent = new EventEmitter();
+    @Input() userName: string;
 
+
+    constructor(private usersService: UsersService) { }
 
     submit() {
-        if(this.userName.length < 2) {
+        if (this.userName.length < 2) {
             return;
         }
-        this.sent.emit(this.userName); // кинули івент
-       // console.log(this.userName);
+        const user = new UserDto();
+        user.id = (new Date).getTime();
+        user.name = this.userName;
+        this.usersService.add(user).subscribe(() => {
+            this.sent.emit(user);
+        });
     }
+
 }

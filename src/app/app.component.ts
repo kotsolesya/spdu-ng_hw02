@@ -12,26 +12,19 @@ export class AppComponent implements OnInit {
 	authorized = false;
 	user: UserDto;
 	count = 12;
-	name = 'Tina';
+	//name = 'Tina';
 	names: string[] = [];
 
 	constructor(private usersService: UsersService) { }
 
-	// setUser(name: string) {
-	// 	this.authorized = !!name;
-	// 	//console.log(name);
-	// }
 	addName(name: string) {
 		this.names.push(name);
 	}
 
-	isValid(): boolean {
-		return this.count > 55;
-	}
-
-	show(msg: string) {
-		this.name = msg;
-		//return `${msg} ${this.count}`;
+	signOut() {
+		localStorage.removeItem('user');
+		this.usersService.destroy();
+		this.updateAuthorized();
 	}
 
 	ngOnInit() {
