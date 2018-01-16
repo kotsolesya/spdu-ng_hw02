@@ -10,6 +10,7 @@ import { LoginModule } from './components/login/login.module';
 import { UsersModule } from './components/users/users.module';
 import { MessagesModule } from './components/messages/messages.module';
 import { MessageSendModule } from './components/message-send/message-send.module';
+import { MessagesService } from './rest/messages.service';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { MessageSendModule } from './components/message-send/message-send.module
 		AppComponent
 	],
 	providers: [
-		UsersService
+		UsersService,
+		MessagesService
 	],
 	bootstrap: [
 		AppComponent
