@@ -17,5 +17,4 @@ build:
 test:
   stage: test
   script:
-  - npm run lint
-  - ./node_modules/@angular/cli/bin/ng test --single-run=true --browsers PhantomJS --watch=false
+    - npm run lint

@@ -1,4 +1,4 @@
-import { Component,Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, OnDestroy } from '@angular/core';
 
 import { Subscription } from 'rxjs/Subscription';
 import { UsersService } from './../../rest/users.service';
@@ -11,7 +11,7 @@ import { MessageDto } from './../../rest/message.dto';
     templateUrl: './messages.html'
 })
 
-export class MessagesComponent {
+export class MessagesComponent implements OnInit, OnDestroy {
 
     private messagesSub: Subscription;
     private usersSub: Subscription;
@@ -22,7 +22,7 @@ export class MessagesComponent {
     constructor(
         private usersService: UsersService,
         private messagesService: MessagesService
-    ){}
+    ) {}
 
     ngOnInit() {
         this.messagesService.init();
@@ -33,7 +33,7 @@ export class MessagesComponent {
 
     getUserName(userId: number): string {
         const user = this.users.find(u => u.id === userId);
-        if (!user) return;
+        if (!user) { return; }
         return user.name;
     }
 
