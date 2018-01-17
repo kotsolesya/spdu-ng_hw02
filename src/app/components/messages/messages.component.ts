@@ -1,4 +1,4 @@
-import { Component,Input, Output, EventEmitter, OnInit, ViewChild } from '@angular/core';
+import { Component,Input, Output, EventEmitter, OnInit } from '@angular/core';
 
 import { Subscription } from 'rxjs/Subscription';
 import { UsersService } from './../../rest/users.service';
@@ -6,16 +6,12 @@ import { UserDto } from './../../rest/user.dto';
 import { MessagesService } from './../../rest/messages.service';
 import { MessageDto } from './../../rest/message.dto';
 
-import { ScrollToDirective } from '../../ui/scroll-to/scroll-to.directive';
-
-
 @Component({
     selector: 'app-messages',
     templateUrl: './messages.html'
 })
 
 export class MessagesComponent {
-    @ViewChild(ScrollToDirective) scrollToDirective: ScrollToDirective;
 
     private messagesSub: Subscription;
     private usersSub: Subscription;

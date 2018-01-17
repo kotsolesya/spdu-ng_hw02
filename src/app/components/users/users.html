@@ -1,5 +1,6 @@
 <ul class="users">
     <li *ngFor="let user of users">
-        {{user.name}}
+        &#9679; {{user.name}}
+        <span *ngIf="currentUser.id === user.id"> (you)</span>
     </li>
 </ul>

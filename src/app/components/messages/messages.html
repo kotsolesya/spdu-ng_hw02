@@ -1,5 +1,7 @@
 <ul class="messages">
     <li *ngFor="let message of messages">
-        {{message.text}}
+        <span class="message-user">{{getUserName(message.userId)}}</span>
+        <span class="message-date">{{message.date | date: 'h:mm'}}</span>
+        <div class="message-text">{{message.text}}</div>    
     </li>
 </ul>

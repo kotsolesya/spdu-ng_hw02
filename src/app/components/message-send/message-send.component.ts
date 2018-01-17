@@ -16,6 +16,9 @@ export class MessageSendComponent {
     constructor(private messagesService: MessagesService) { }
 
     send() {
+        if (this.textMessage.length < 1) {
+            return;
+        }
         const message = new MessageDto();
         message.date = new Date(Date.now());
         message.text = this.textMessage;
