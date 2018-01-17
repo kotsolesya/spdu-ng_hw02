@@ -14,8 +14,8 @@
 
 	<div class="content">
 		<div class="content-user-info">
-			{{user.name}}
-			<button type="button" (click)="signOut()">
+			<div>{{user.name}}</div>
+			<button type="button" (click)="signOut()" class="sign_out-user-btn">
 				Sign out
 			</button>
 		</div>
@@ -24,7 +24,7 @@
 		</div>
 
 		<div class="content-message-send">
-			<app-message-send></app-message-send>
+			<app-message-send [userId]="user.id"></app-message-send>
 		</div>
 	</div>
 </div>

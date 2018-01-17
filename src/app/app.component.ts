@@ -11,15 +11,8 @@ import { UserDto } from './rest/user.dto';
 export class AppComponent implements OnInit {
 	authorized = false;
 	user: UserDto;
-	count = 12;
-	//name = 'Tina';
-	names: string[] = [];
 
 	constructor(private usersService: UsersService) { }
-
-	addName(name: string) {
-		this.names.push(name);
-	}
 
 	signOut() {
 		localStorage.removeItem('user');

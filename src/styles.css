@@ -49,6 +49,8 @@ html,
 .content-user-info {
 	padding: 20px 30px;
 	border-bottom: 1px solid #efefef;
+	display: flex;
+    justify-content: space-between;
 	font-weight: bold;
 	font-size: 17px;
 	min-height: 61px;
@@ -63,7 +65,15 @@ html,
 	overflow: auto;
 }
 
-
+.sign_out-user-btn {
+	border-radius: 5%;
+    border: 2px solid #96468e;
+	color: #626365;
+	font-size: 1rem;
+    width: 100px;
+    height: 35px;
+    outline: none;
+}
 /*
 	=== Add User ===
 */
